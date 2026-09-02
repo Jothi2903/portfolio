@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jothi S - AI & Data Science Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --primary-light: #3b82f6;
+            --dark: #1f2937;
+            --dark-light: #374151;
+            --light: #f9fafb;
+            --border: #e5e7eb;
+            --text: #111827;
+            --text-muted: #6b7280;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text);
+            background: #fff;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            background: #fff;
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 2rem;
+            z-index: 100;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        nav > div {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            max-width: 600px;
+        }
+
+        .hero .subtitle {
+            font-size: 14px;
+            color: var(--primary);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-muted);
+            line-height: 1.7;
+            max-width: 550px;
+            margin-bottom: 2rem;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 14px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-light);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-secondary {
+            border: 1px solid var(--border);
+            color: var(--text);
+            background: transparent;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        /* Featured Project */
+        .featured {
+            padding: 3rem 2rem;
+            background: var(--light);
+            margin-top: 2rem;
+        }
+
+        .featured > div {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .featured h2 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+
+        .featured-card {
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .featured-card .tag {
+            font-size: 12px;
+            color: var(--primary);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+        }
+
+        .featured-card h3 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .featured-card p {
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .badge-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .badge {
+            background: var(--primary);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 13px;
+        }
+
+        .stats {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .stat {
+            text-align: left;
+        }
+
+        .stat-number {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 0.25rem;
+        }
+
+        /* Projects Section */
+        #work {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        #work h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+
+        .project {
+            margin-bottom: 2rem;
+            padding-left: 1.5rem;
+            border-left: 4px solid var(--primary);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 0.75rem;
+        }
+
+        .project h3 {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .project-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.3s;
+        }
+
+        .project-link:hover {
+            gap: 0.75rem;
+        }
+
+        .project-meta {
+            color: var(--text-muted);
+            font-size: 13px;
+            margin-bottom: 1rem;
+        }
+
+        .project p {
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+            font-size: 14px;
+        }
+
+        .tech-tags {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .tech-tag {
+            background: var(--light);
+            padding: 0.35rem 0.75rem;
+            border-radius: 6px;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        /* Experience Section */
+        #experience {
+            padding: 4rem 2rem;
+            background: var(--light);
+            margin-top: 2rem;
+        }
+
+        #experience > div {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        #experience h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+
+        .exp-item {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .exp-date {
+            min-width: 150px;
+        }
+
+        .exp-date-title {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .exp-date-role {
+            color: var(--text-muted);
+            font-size: 12px;
+        }
+
+        .exp-content h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .exp-content p {
+            color: var(--text-muted);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* Skills Section */
+        #skills {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        #skills h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .skill-category h3 {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .skill-tag {
+            background: var(--light);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .education-box {
+            margin-top: 2rem;
+            padding: 2rem;
+            background: var(--light);
+            border-radius: 12px;
+        }
+
+        .education-box h3 {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .education-box p {
+            font-size: 14px;
+            line-height: 1.7;
+            color: var(--text-muted);
+        }
+
+        /* Contact Section */
+        #contact {
+            padding: 4rem 2rem;
+            background: var(--light);
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        #contact > div {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        #contact h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        #contact p {
+            color: var(--text-muted);
+            font-size: 16px;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: transform 0.3s;
+        }
+
+        .contact-link:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            padding: 2rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            text-align: center;
+            font-size: 12px;
+            background: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1rem;
+                font-size: 13px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .exp-item {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .exp-date {
+                min-width: auto;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-links {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div>
+            <div class="logo">Jothi S</div>
+            <ul>
+                <li><a href="#work">Work</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="subtitle">AI & Data Science professional</div>
+        <h1>Building intelligent solutions that solve real problems</h1>
+        <p>Full-stack developer and AI innovator with 3+ internships. I've built wearable navigation systems for visually impaired users, led management platforms that cut manual work by 30%, and deployed applications serving 50+ active users.</p>
+        <div class="cta-group">
+            <a href="mailto:jothisubra2903@gmail.com" class="btn btn-primary">
+                <i class="fas fa-envelope"></i> Get in touch
+            </a>
+            <a href="https://github.com/Jothi2903" target="_blank" class="btn btn-secondary">
+                <i class="fab fa-github"></i> View GitHub
+            </a>
+        </div>
+    </section>
+
+    <!-- Featured Project -->
+    <section class="featured">
+        <div>
+            <h2>Featured innovation</h2>
+            <div class="featured-card">
+                <div class="tag">Patent consideration</div>
+                <h3>Visionary Guidance</h3>
+                <p>Wearable navigation system using ultrasonic sensors and GPS for real-time obstacle detection and guidance. Achieved 95% accuracy within a 2-meter radius with haptic feedback for intuitive user interaction.</p>
+                <div class="badge-group">
+                    <span class="badge">Arduino</span>
+                    <span class="badge">GPS</span>
+                    <span class="badge">Ultrasonic sensors</span>
+                    <span class="badge">Haptic feedback</span>
+                </div>
+                <div class="stats">
+                    <div class="stat">
+                        <div class="stat-number">95%</div>
+                        <div class="stat-label">Detection accuracy</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">2m</div>
+                        <div class="stat-label">Effective range</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="work">
+        <h2>Recent projects</h2>
+
+        <div class="project">
+            <div class="project-header">
+                <h3>Lead Management Platform</h3>
+                <a href="https://laundrotrack-system.netlify.app" target="_blank" class="project-link">
+                    Live demo <i class="fas fa-arrow-up-right-from-square"></i>
+                </a>
+            </div>
+            <div class="project-meta">June 2026 – August 2026 | Systemcares IT Solution</div>
+            <p>Full-stack application for a 20-person sales team to track and organize customer leads efficiently. Reduced quotation turnaround time by 20% and streamlined the entire sales workflow with real-time data entry and follow-up management.</p>
+            <div class="tech-tags">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">MySQL</span>
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">20% time saved</span>
+            </div>
+        </div>
+
+        <div class="project">
+            <div class="project-header">
+                <h3>Expense Tracker Mobile App</h3>
+                <span style="background: #d1fae5; color: #047857; padding: 0.35rem 0.75rem; border-radius: 6px; font-size: 12px; font-weight: 500;">4.5/5 rating</span>
+            </div>
+            <div class="project-meta">June 2026 – July 2026</div>
+            <p>Full-stack Flutter application for tracking daily expenses and income with real-time synchronization. Features transaction categorization, budget tracking, and visual analytics. Deployed to 50+ active users with strong engagement.</p>
+            <div class="tech-tags">
+                <span class="tech-tag">Flutter</span>
+                <span class="tech-tag">Firebase</span>
+                <span class="tech-tag">Dart</span>
+                <span class="tech-tag">iOS & Android</span>
+            </div>
+        </div>
+
+        <div class="project">
+            <div class="project-header">
+                <h3>Student Learning Management System</h3>
+            </div>
+            <div class="project-meta">June 2025 – August 2025 | One Yes Infotech Solution</div>
+            <p>Web platform supporting 100+ students, administrators, and instructors. Implemented user authentication, course management, and performance tracking. Reduced manual administrative work by 25%.</p>
+            <div class="tech-tags">
+                <span class="tech-tag">Figma</span>
+                <span class="tech-tag">Web technologies</span>
+                <span class="tech-tag">Database</span>
+                <span class="tech-tag">100+ users</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div>
+            <h2>Professional experience</h2>
+
+            <div class="exp-item">
+                <div class="exp-date">
+                    <div class="exp-date-title">Aug 2026</div>
+                    <div class="exp-date-role">Lead Developer</div>
+                </div>
+                <div class="exp-content">
+                    <h3>Systemcares IT Solution</h3>
+                    <p>Built full-stack lead management application. Designed database architecture, implemented real-time data entry system, and optimized quotation workflow reducing turnaround time by 20%.</p>
+                </div>
+            </div>
+
+            <div class="exp-item">
+                <div class="exp-date">
+                    <div class="exp-date-title">Aug 2025</div>
+                    <div class="exp-date-role">Web Developer</div>
+                </div>
+                <div class="exp-content">
+                    <h3>One Yes Infotech Solution</h3>
+                    <p>Designed and developed Student Learning Management System supporting 100+ users. Implemented core features including authentication, course management, and performance analytics.</p>
+                </div>
+            </div>
+
+            <div class="exp-item">
+                <div class="exp-date">
+                    <div class="exp-date-title">July 2024</div>
+                    <div class="exp-date-role">Cloud Computing Intern</div>
+                </div>
+                <div class="exp-content">
+                    <h3>DLK Technologies</h3>
+                    <p>Gained hands-on experience with AWS cloud infrastructure across 10+ EC2/S3 instances. Optimized resource allocation and reduced manual provisioning steps by 20%.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2>Skills & expertise</h2>
+
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3>AI & Data Science</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Machine Learning</span>
+                    <span class="skill-tag">Deep Learning</span>
+                    <span class="skill-tag">NLP</span>
+                    <span class="skill-tag">Data Analysis</span>
+                    <span class="skill-tag">CNNs, RNNs, LSTM</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>Programming</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">SQL</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">C++</span>
+                    <span class="skill-tag">Dart</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>Tools & Platforms</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">TensorFlow</span>
+                    <span class="skill-tag">Pandas, NumPy</span>
+                    <span class="skill-tag">Git & GitHub</span>
+                    <span class="skill-tag">AWS</span>
+                    <span class="skill-tag">GCP</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>Development</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Full-stack web</span>
+                    <span class="skill-tag">Mobile (Flutter)</span>
+                    <span class="skill-tag">Database design</span>
+                    <span class="skill-tag">API development</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>Security & DevOps</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">SIEM</span>
+                    <span class="skill-tag">SOAR</span>
+                    <span class="skill-tag">CI/CD</span>
+                    <span class="skill-tag">Cloud deployment</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>Design & UX</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Figma</span>
+                    <span class="skill-tag">Power BI</span>
+                    <span class="skill-tag">Matplotlib</span>
+                    <span class="skill-tag">Data visualization</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="education-box">
+            <h3>Education</h3>
+            <p><strong>B.Tech in Artificial Intelligence and Data Science</strong> | Sri Sairam Engineering College | Graduating May 2026 | CGPA: 8.35</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div>
+            <h2>Let's work together</h2>
+            <p>I'm always interested in discussing AI/ML opportunities, web development projects, or innovative ideas. Feel free to reach out.</p>
+
+            <div class="contact-links">
+                <a href="mailto:jothisubra2903@gmail.com" class="contact-link">
+                    <i class="fas fa-envelope"></i> Email
+                </a>
+                <a href="https://linkedin.com/in/Jothi291103" target="_blank" class="contact-link">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+                <a href="https://github.com/Jothi2903" target="_blank" class="contact-link">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Designed and built by Jothi S. Powered by innovation and attention to detail.</p>
+    </footer>
+</body>
+</html>
